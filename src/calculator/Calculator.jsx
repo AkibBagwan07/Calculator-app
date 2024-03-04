@@ -6,15 +6,15 @@ import { useState } from "react";
 export default function Calculator() {
   const [value, setValue] = useState("");
   const [ans, setAns] = useState(0);
-  // const [btnClicked, setBtnClicked] = useState(false);
+  const [btnClicked, setBtnClicked] = useState(false);
   // console.log(value);
   const reset = () => {
     setValue("");
-    // setBtnClicked(false);
+     setBtnClicked(false);
     setAns(0);
   };
   const calculate = () => {
-    //  setBtnClicked(true);
+      setBtnClicked(true);
     setAns(eval(value));
     // console.log(ans);
   };
@@ -22,7 +22,7 @@ export default function Calculator() {
     <div className="App">
       <h1>React Calculator</h1>
       <input value={value} type="text" />
-      {/* {value === "" && btnClicked === false ? <p>Error</p>} */}
+      {btnClicked === true && value === "" && <p>Error</p>}
       {ans !== 0 && <p>{ans}</p>}
       <br />
       <div className={styles.btnParent}>
